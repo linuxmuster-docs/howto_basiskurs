@@ -1,56 +1,40 @@
 Vorwort
 =======
 
-Stand:
+Stand: 28.11.2015
 
 Zuerst sei darauf hingewiesen, dass in der vorliegenden Dokumentation aus Gründen der Vereinfachung und besseren Lesbarkeit fast ausschließlich die männliche Form der Schreibweise verwendet wurde. Es ist jedoch stets ausdrücklich auch die weibliche Schreibweise gemeint, ohne dass dies immer erwähnt wird.
 
 
-Die Anforderungen an ein Computernetzwerk in einer Schulungsumgebung, also an ein sogenanntes pädagogisches Netzwerk, sind komplexer als beispielsweise die in einer reinen Büroumgebung.
+Die Anforderungen an ein Computernetzwerk in einer Schulumgebung, also an ein sogenanntes pädagogisches Netzwerk, sind komplexer bzw. einfach andere als beispielsweise die in einer reinen Büroumgebung. Die geforderten Grundfunktionen sind in allen Schulen und Schularten dieselben, so dass es sich anbietet eine vorkonfigurierte Serverumgebung zur Verfügung zu stellen, damit nicht jede Schule das Rad von ihrem Dienstleister neu erfinden lassen muss.
+
+*linuxmuster.net* bietet Ihnen:
+
+*  Eine Serverumgebung, die dem Netzwerkberater der Schule möglichst einfache Umgebungen für seine Aufgaben, wie Benutzerverwaltung und Installation der Anwendungssoftware, zur Verfügung stellt (Schulkonsole, HowTo Anleitungen). Außerdem für den Dienstleister vorgefertigte Installationspakete mit guter Dokumentation, so dass der Installations- und Wartungsaufwand so gering wie möglich ist.
 
 
-Abgestürzte Arbeitsstationen unter Windows müssen in Minutenschnelle – etwa während einer Abschlussprüfung am Rechner oder von einer Unterrichtsstunde zur anderen – auf Knopfdruck (und damit auch vom Schüler bedienbar) restaurierbar sein.
-
-
-In bestimmten Unterrichtssituationen ist es wünschenswert, den Zugriff auf das Internet und damit auf diverse Kommunikationsmöglichkeiten wie Mail etc. auf Knopfdruck ausschalten zu können. Entsprechendes kann auch für den Raumdrucker gelten.
-
-
-Selbstverständlich müssen alle anderen Anforderung an ein LAN/Intranet erfüllt sein, wie Sicherheit gegen Zugriff von außen (Firewall), Internetzugang (www, ftp, mail), Intranetdienste, Datei- und Druckdienste, einfache Benutzeradministration (wer versetzt 1500 Schüler am Schuljahresende?) usw.
-
-
-Die Musterinstallation
-en
-für Schulserver sind vorkonfigurierte Serverlösungen, die all diese Funktionalitäten bieten, ohne dass die Netzwerkberater an den Schulen über das Knowhow von IT-Experten verfügen müssen!
-
-
-Die Musterinstallation des Linux-Servers besitzt im Einzelnen folgende Leistungsmerkmale:
-
-*   Restauration der Betriebssysteme (Linux, Windows) eines Clientrechners auf Knopfdruck: Selbstheilende Arbeitsstationen (SheilA)
+*   Restauration der Betriebssysteme (Linux, Windows) eines Clientrechners auf Knopfdruck in kurzer Zeit z.B. beim Start des Rechners am Beginn der Unterrichtsstunde (selbstheilende Arbeitsstationen (SheilA) mit Linbo)
 
 
 
-*   Filterung problematischer Internet-Inhalte (Sex, Gewalt, Drogen, Raubkopien) über
-    *IP*
-    FIR
+*   Filterung problematischer Internet-Inhalte (Sex, Gewalt, Drogen, Raubkopien) über die Firewall
+    *IPFire* bzw. Einbindung eines externen Filters
 
 
 
-*   Sicherheit im LAN: Paketfilter Firewall (
-    *IP*
-    FIRE
-    )
+*   Sicherheit im LAN: Paketfilter Firewall ( *IPFire* )
 
 
 
-*   Massenhafte Erzeugung privater Schüler- und Lehrer-Benutzerzulassungen aus Namenslisten, automatische Zuordnung zu Klassen, automatisches Versetzen, persönliche E-mail Adresse
+*   Massenhafte Erzeugung privater Schüler- und Lehrer-Benutzernamen aus Namenslisten mit automatische Zuordnung zu Klassen, automatischem Versetzen beim Schuljahreswechsel, Erzeugung einer persönlichen E-mail Adresse, automatischem Löschen von abgegangenen Schülern
 
 
 
-*   Tauschmöglichkeiten innerhalb der Klassen, unter den Lehrern und schulweit
+*   Tauschmöglichkeiten innerhalb der Klassen, unter den Lehrern und für alle Benutzer des Unterrichtsnetzwerks
 
 
 
-*   Eingeschränkter Plattenplatz für Benutzer (Quotas)
+*   Begrenzung des Plattenplatz für Benutzer (Quotas)
 
 
 
@@ -58,14 +42,11 @@ Die Musterinstallation des Linux-Servers besitzt im Einzelnen folgende Leistungs
 
 
 
-*   Komplettes Intranet (E-Mail, www,
-    Datenbankanbindung
-    )
+*   Komplettes Intranet (E-Mail, www, Datenbankanbindung)
 
 
 
-*   vorinstalliertes
-    moodle
+*   Möglichkeit der Einbindung eines Elearningsystems wie *moodle*
 
 
 
@@ -87,7 +68,7 @@ Die Musterinstallation des Linux-Servers besitzt im Einzelnen folgende Leistungs
 
 
 
-*   Drucker- und Internetzugang raumweise an- u. abschaltbar
+*   Drucker- und Internetzugang raumweise und in Computerräumen auch rechnerweise an- u. abschaltbar
 
 
 
