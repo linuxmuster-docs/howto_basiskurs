@@ -148,8 +148,10 @@ Gestaltung des Computerraums
 
 
 
-.. figure:: 10000000000001E6000001672E6B2622_png
-  :alt:Projektion von Bildschirminhalten
+..  figure:: images/10000000000001E6000001672E6B2622.png 
+    :alt: Projektion von Bildschirminhalten
+
+    Projektion von Bildschirminhalten
 
     Für die unterrichtliche Nutzung eines Computerraumes ist eine Datenprojektionsmöglichkeit vorzusehen (Beamer oder Software gestützt). Nützlich ist auch ein Zugriff der Lehrperson auf Schülerbildschirme und -tastaturen. Sogenannte mobile Einheiten für den Einsatz im Klassenzimmer sollten auch mit einem Datenprojektor ausgestattet sein.
 
