@@ -1,7 +1,6 @@
 Sicherheit / Zugang von außen
 =============================
 
-Stand:
 
 Wer heute einen Computer ungesichert mit dem Internet verbindet, wird nicht lange Freude damit haben. Was für einzelne Rechner gilt, gilt erst recht für ein ganzes Netz. Bei der
 *linuxmuster.net*

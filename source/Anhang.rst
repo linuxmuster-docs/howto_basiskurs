@@ -1,7 +1,6 @@
 Anhang
 ======
 
-Stand:
 
 Basiskurs: Benutzer mit Passwörtern
 -----------------------------------

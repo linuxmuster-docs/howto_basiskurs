@@ -1,7 +1,6 @@
 Software im Netz
 ================
 
-Stand:
 
 In diesem Kapitel geht es um die verschiedenen Arten der Softwareinstallation im Netz. Es werden Vor- und Nachteile aufgezeigt. Schließlich wird anhand von typischen Beispielen die Softwareinstallation geübt.
 

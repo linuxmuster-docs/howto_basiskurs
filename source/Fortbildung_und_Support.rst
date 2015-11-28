@@ -1,7 +1,6 @@
 Fortbildung und Support
 =======================
 
-Stand:
 
 Grundlage dieses Kapitels sind die
 Multimedia-Empfehlungen (Ausstattung, Betreuung sowie technische Unterstützung schulischer Netze) die im Dezember 2002 gemeinsam vom Land Baden-Württemberg und den Kommunalen Landesverbänden herausgegeben wurden (siehe auch

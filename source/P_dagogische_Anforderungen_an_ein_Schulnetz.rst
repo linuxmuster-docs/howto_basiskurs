@@ -1,7 +1,6 @@
 Pädagogische Anforderungen an ein Schulnetz
 ===========================================
 
-Stand:
 
 Schulische Netzwerke unterscheiden sich aufgrund von pädagogischen Anforderungen von Firmennetzwerken. Damit sie diesen Anforderungen gerecht werden, müssen für den Schulbetrieb spezifische Kriterien berücksichtigt werden.
 

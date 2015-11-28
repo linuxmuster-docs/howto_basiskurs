@@ -1,7 +1,6 @@
 Datensicherung und Restauration
 ===============================
 
-Stand:
 
 Wie bei allen Serversystemen ist auch bei der
 *linuxmuster.net*

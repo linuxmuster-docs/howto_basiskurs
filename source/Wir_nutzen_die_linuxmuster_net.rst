@@ -1,7 +1,6 @@
 Wir nutzen die linuxmuster.net
 ==============================
 
-Stand:
 
 Dieses Kapitel enthält Anleitungen und Übungen zur Nutzung der
 *linuxmuster.net*

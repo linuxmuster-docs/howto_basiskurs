@@ -1,7 +1,6 @@
 Benutzerverwaltung in der linuxmuster.net
 =========================================
 
-Stand:
 
 In diesem Kapitel erfahren Sie, wie in der
 *linuxmuster.net *

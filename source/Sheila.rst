@@ -1,7 +1,6 @@
 Sheila
 ======
 
-Stand:
 
 In diesem Kapitel lernen Sie eine der wichtigsten Eigenschaften der
 *linuxmuster.net*

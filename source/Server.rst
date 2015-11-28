@@ -1,7 +1,6 @@
 Server
 ======
 
-Stand:
 
 In diesem Kapitel werden Sie mit den grundsätzlichen Serveroperationen vertraut gemacht. Dabei kann es natürlich nicht um eine allgemeine Einführung in das Betriebssystem Linux gehen, sondern muss sich auf eine kurze Beschreibung der notwendigen Befehle beschränken, soweit sie im laufenden Betrieb eines Schulservers von Bedeutung sind.
 

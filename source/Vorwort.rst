@@ -1,7 +1,6 @@
 Vorwort
 =======
 
-Stand: 28.11.2015
 
 Zuerst sei darauf hingewiesen, dass in der vorliegenden Dokumentation aus Gründen der Vereinfachung und besseren Lesbarkeit fast ausschließlich die männliche Form der Schreibweise verwendet wurde. Es ist jedoch stets ausdrücklich auch die weibliche Schreibweise gemeint, ohne dass dies immer erwähnt wird.
 

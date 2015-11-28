@@ -1,7 +1,6 @@
 Drucken im Netz
 ===============
 
-Stand:
 
 Im diesem Kapitel lernen Sie, einen Netzwerkdrucker so auf Ihrem Server einzurichten, dass Sie von den Arbeitsstationen aus in Ihrem Netzwerk drucken können.
 
