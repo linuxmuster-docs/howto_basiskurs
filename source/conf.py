@@ -47,7 +47,7 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = u'Linbo für Anfänger'
+project = u'Basiskurs linuxmuster.net 6.1'
 copyright = u'2015, FIXME'
 
 # The version info for the project you're documenting, acts as replacement for
