@@ -12,5 +12,4 @@
     Drucken_im_Netz
     Sicherheit___Zugang_von_au_en
     Datensicherung_und_Restauration
-    Fortbildung_und_Support
     Anhang
