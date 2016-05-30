@@ -23,15 +23,13 @@ Je nach Art der Daten ist eine angepasste Vorgehensweise für die Sicherung sinn
 
 Unter Linux kann auf verschiedene Opensource Software zurückgegriffen werden. Ein kurzer Überblick über gängige Lösungen.
 
-**Datensicherung in der **
-*linuxmuster.net*
+**Datensicherung in der** *linuxmuster.net*
 
 Eine ausführliche Beschreibung zur Datensicherung in der
 *linuxmuster.net*
 .
 
-**Restauration in der **
-*linuxmuster.net*
+**Restauration in der** *linuxmuster.net*
 
 Hinweise zu den für den Netzwerkberater alltäglichen Aufgaben im Zusammenhang mit der Restauration von Dateien und Verzeichnissen.
 
@@ -93,11 +91,12 @@ Ganze Festplatten oder Partitionen kann man auch mit
 ) sichern. Hierbei wird ein 1:1 Abbild der Festplatte/n erzeugt. Voraussetzung ist identischer oder größerer Plattenplatz auf den Datenträgern, auf die gesichert wird.
 
 Neben einer Vielzahl von kommerziellen Programmen gibt es auch aus dem Opensource Bereich mehrere Programme zur Datensicherung, wie z.B.
-*Amanda, Mondo, *
-rsnapshot oder das Migrationsskript der linuxmuster.net (siehe
+- Amanda, 
+- Mondo,
+- rsnapshot oder 
+- das Migrationsskript der linuxmuster.net (siehe
 `http://www.linuxmuster.net/wiki/anwenderwiki:backup_restore:start <http://www.linuxmuster.net/wiki/anwenderwiki:backup_restore:start>`_
-)
-.
+).
 
 Datensicherung in der linuxmuster.net
 -------------------------------------
@@ -105,30 +104,44 @@ Datensicherung in der linuxmuster.net
 Überblick
 ~~~~~~~~~
 
-Für die Datensicherung und Restauration wird
-u.a.
-bei der
-*linuxmuster.net*
-die Opensource Software
-*Mondo / Mindi*
-benutzt
+Für die Datensicherung und Restauration war bis zur Version *6.0* von *linuxmuster.net* die Opensource Software
+*Mondo / Mindi* 
 
 `http://www.linuxmuster.net/wiki/dokumentation:handbuch60:maintenance:backup <http://www.linuxmuster.net/wiki/dokumentation:handbuch60:maintenance:backup>`_
 
-.
+das Standardprogramm.
+
+Aufgrund der hohen Anzahl von virtualisierten Umgebungen im Gebrauch von Server und Firewall, gibt es je nach Virtualisierungslösung unterschiedliche Werkzeuge zur Sicherung (z.B. Snapshots) von ganzen Instanzen des Servers oder der Firewall.
+Dies sind Backup-Lösungen von außerhalb der Serverumgebung (oft ohne Einfluss des linuxmuster.net Servers) und sie sollten daher in der Dokumentation der jeweiligen Virtualisierungssoftware zu finden sein.
+
+Empfohlene Werkzeuge zur Sicherung und Wiederherstellung des Servers und der Firewall von innerhalb der Serverumgebung sind ab **linuxmuster.net 6.1** die Migrationsskipte ``linuxmuster-migration-backup`` und ``linuxmuster-migration-restore``. 
+
+Was diese Lösung bietet:
+  * einfache Konfiguration der einzubindenden oder auszuschließenden Verzeichnisse
+  * automatische Sicherung der aktuellen Firewalleinstellungen
+  * kurzzeitiges Herunterfahren sensitiver Dienste (z.B. Datenbanken) zum Schutz der Datenintegrität
+  * Rsync-Funktionalität, d.h. ab der zweiten Sicherung werden nur noch die Änderungen gesichert.
+  * "Disaster-Recovery" ist durch die rasche Neuinstallation gegeben.
+  * äußerst einfaches Wiederherstellen einzelner Dateien durch den Administrator
+
+Was über außenstehende Lösungen realisiert werden muss:
+  * Versionierung und Historie des Backups (es gibt nur **ein** Backup)
+  * Eventuelle Sicherung des Virtualisierungshosts und weiterer Virtualisierungsclients
+
+Für alle bisherigen und interessierte Benutzer der Disaster-Recovery Lösung `Mondo Rescue <http://www.mondorescue.org/>`_ stehen die Skripte im Paket **linuxmuster-backup** (Standardlösung bis linuxmuster.net 6.0) weiterhin 
+`als Addon zur Verfügung <http://www.linuxmuster.net/wiki/dokumentation:handbuch:addons:backup.overview>`_.
 
 Diese Software hat zwischenzeitlich eine große Verbreitung erlangt und wird auch von großen renommierten EDV Firmen verwendet.
 
-Aus dem Duo
-*Mondo / Mindi*
-ist
-*Mondo*
-für die Datensicherung und Restaurierung zuständig.
-*Mindi*
-ergänzt, indem es im Fall eines Totalverlusts der Daten des Servers bzw. der Festplatten, bootfähige Medien erzeugt, mit denen für ein Disaster Recovery ein Basissystem gebootet werden kann.
+Datensicherung mit Mondo / Mindi
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Für die Sicherung mit
-*Mondo / Mindi*
+Aus dem Duo *Mondo / Mindi*
+ist *Mondo*
+für die Datensicherung und Restaurierung zuständig.
+*Mindi* ergänzt, indem es im Fall eines Totalverlusts der Daten des Servers bzw. der Festplatten, bootfähige Medien erzeugt, mit denen für ein Disaster Recovery ein Basissystem gebootet werden kann.
+
+Für die Sicherung mit *Mondo / Mindi*
 bieten sich als Sicherungsgeräte in erster Linie interne und externe Festplatten bzw. Sicherungsrechner (Sicherung per NFS) an. Von beiden können die gesicherten Daten zusätzlich auf CDs bzw. DVDs gebrannt werden.
 
 In der
@@ -321,7 +334,7 @@ Alle anderen Felder können Sie auf den Standardeinstellungen belassen. Abhängi
 
 *   *Backup verifizieren?*
 
-    |1000000000000225000002383B0F3C72_png|
+    |sk-backup-img|
 
 
 
@@ -443,74 +456,36 @@ Automatisierte Sicherung mit einem Cronjob
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Im Dauerbetrieb lässt sich Datensicherung sinnvoll nur über den automatisierten Aufruf des Skripts erreichen. Im Zustand
-unmittelbar nach der Installation der
-*linuxmuster.net*
-sind Cronjobs für die unterschiedlichen Sicherungsarten (
---full –diff, --inc
-) eingerichtet, die zu unterschiedlichen Zeiten automatisch ausgeführt werden. Diese Cronjobs sind jedoch nicht aktiviert. Am Beispiel des Cronjobs für die Vollsicherung lernen Sie, wie Sie einen solchen Befehl aktivieren.
+unmittelbar nach der Installation der *linuxmuster.net*
+sind Cronjobs für die unterschiedlichen Sicherungsarten (--full –diff, --inc ) eingerichtet, die zu unterschiedlichen Zeiten automatisch ausgeführt werden. Diese Cronjobs sind jedoch nicht aktiviert.
 
-Dazu melden Sie sich als Benutzer
-Administrator
-an einer Arbeitsstation an. Öffnen Sie einen Browser und rufen Sie die Adresse
-`https://server:999 <https://server:999/>`_
-auf. Damit gelangen Sie in die web basierte Linux Administrationsoberfläche
-*Webmin*
-. Melden Sie sich als
-root
-bei
-*Webmin*
-an:
+Um die Cronjobs zu aktivieren, wählen Sie in der Schulkonsole als Netzwerkbetreuer unter ``Einstellungen - Backup``
+das Markierungsfeld **vollautomatische Sicherung durchführen**.
 
-|10000201000002C9000001309A62F283_png|
+Die Cronjobs wurden von den Entwicklern der *linuxmuster.net*
+so angelegt, dass eine Vollsicherung einmal pro Monat erfolgt. Dreimal pro Monat erfolgt eine differentielle Sicherung. An allen übrigen Tagen des Monats wird eine inkrementelle Sicherung durchgeführt. So ist gewährleistet, dass jeder Zustand des Servers während des Monats wiederhergestellt werden kann. Darüber hinaus wird durch diese Abfolge von differentiellen und inkrementellen Sicherungen der Speicherplatzverbrauch auf dem Sicherungsgerät minimiert.
 
-wählen Sie in der Registerkarte
-*Server*
-die Option
-*geplante Cron-Aufträge*
+Anpassung der Sicherungszeiten
+""""""""""""""""""""""""""""""
+Die Daten und Zeiten der Sicherungen sind in der Datei ``/etc/cron.d/linuxmuster-backup`` festgelegt::
 
-|10000201000004160000011906DD661B_png|
+ # /etc/cron.d/linuxmuster-backup
+ # Zeiten, zu denen ein Backup angefertigt wird.
+ #
+ # Frank Schütte <fschuett@gymnasium-himmelsthuer.de>
+ # 17.10.2013
+ # Gpl v3
+ #
+ 0 1 * * 6   root [ -e /etc/linuxmuster/backup.conf ] && . /etc/linuxmuster/backup.conf && [ "$cronbackup" = "yes" ] && /usr/sbin/linuxmuster-backup-diff-full
+ 0 2 * * 0-5 root [ -e /etc/linuxmuster/backup.conf ] && . /etc/linuxmuster/backup.conf && [ "$cronbackup" = "yes" ] && /usr/sbin/linuxmuster-backup --inc
 
-Um einen Cronjob z.B. den für die Vollsicherung zu aktivieren, klicken Sie auf den gewünschten Befehl, hier also
-/usr/sbin/linuxmuster-backup –full
-.
+Die Zeilen ohne Kommentarzeichen starten das Sicherungsprogramm. Die obere Zeile startet wöchentlich eine differentielle und einmal im Monat eine volle Datensicherung, die untere Zeile startet an allen anderen Tagen ein inkrementelles Backup. Die Datei kann mit einem Texteditor bearbeitet werden. Verwenden Sie aber keinen Windows-Editor, da ansonsten die Zeilenumbrüche inkompatibel verändert werden.
 
-|10000201000002F90000010B67067282_png|
+Die Zahlen am Anfang beschreiben den Ausführungszeitpunkt, wie bei jedem Cron-Job in der Reihenfolge::
 
-Im folgenden Fenster wählen Sie bei
-*Aktiviert? *
-Ja.
+  Minute Stunde Tag Monat Wochentag
 
-|10000201000003B5000000D929924016_png|
-
-Um die Cronjobs für die differentielle und inkrementelle Sicherung zu aktivieren verfahren Sie entsprechend.
-
-Die Cronjobs wurden von den Entwicklern der
-*linuxmuster.net*
-so angelegt, dass eine Vollsicherung einmal pro Monat erfolgt. Dreimal pro Monat erfolgt eine differentielle Sicherung. An allen übrigen Tagen des Monats wird eine inkrementelle Sicherung durchgeführt. So ist gewährleistet, dass jeder Zustand des Servers während des Monats wiederhergestellt werden kann. Darüber hinaus wird durch
-diese Abfolge von differentiellen und inkrementellen Sicherungen der Speicherplatzverbrauch auf dem Sicherungsgerät minimiert.
-
-
-
-#.  Sicherung - Aktivieren der Cronjobs in
-    *Webmin*
-
-
-    *   Melden Sie sich als Benutzer
-        root
-
-        in einem Browser bei
-        *Webmin*
-        unter der Adresse
-        `https://server:999 <https://server:999/>`_
-        an
-
-
-
-    *   Aktivieren Sie die drei Cronjobs für die automatische Datensicherung
-
-
-
-
+dabei bedeutet in der Wochentagsspalte 0 - Sonntag, ... 6 - Samstag.
 
 
 Manuelle Sicherung
@@ -809,7 +784,7 @@ der komplette ursprüngliche Pfad erstellt. Kopieren Sie die gewünschten Dateie
     :height: 6.181cm
 
 
-.. |1000000000000225000002383B0F3C72_png| image:: images/1000000000000225000002383B0F3C72.png
+.. |sk-backup-img| image:: images/sk-backup.png
     :width: 14.499cm
     :height: 15cm
 
